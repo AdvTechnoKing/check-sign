@@ -38,7 +38,7 @@ const chars = {
   '=': '',
 };
 
-export default (url: string, key: string) => {
+export default ({url,key}:{url: string, key: string}) => {
   const params = getQueryParams(url);
   const paramsString = getQueryParamsString(params.queryParams);
   const rawSign = crypto.createHmac('sha256', key).update(paramsString).digest('base64');
